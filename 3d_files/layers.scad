@@ -1,9 +1,9 @@
 $fn = 100;
-//module pcb(){
-//    translate([-43,150,0])
-//    import("/home/samz/programming/kicad/keychron_hitbox/Unnamed-keychron_hitbox.stl");
-//}
-//pcb();
+module pcb(){
+    translate([-43,150,0])
+    import("/home/samz/programming/kicad/keychron_hitbox/Unnamed-keychron_hitbox.stl");
+}
+
 module plainbase(x_size=208.5,y_size=125,corner_radius=10){
     translate([corner_radius,corner_radius,0])
     offset(r=corner_radius)
@@ -16,7 +16,7 @@ module hole(x_offset,y_offset,radius){
     circle(radius);
 }
 
-module switch_plate_imprint(size = 13, catch_x = 3, catch_y=0.3){
+module switch_plate_imprint(size = 13.83, catch_x = 3, catch_y=0.2){
     difference(){
         square(size, center=true);
         translate([0,size/2,0])
@@ -71,6 +71,12 @@ module 26mm_switch_circular(){
 
 module switches_back_slots(){
     squares(switch_locations, 15.4);
+    squares(jump_locations, 15.4);
+}
+
+module switches_front_slots(){
+    squares(switch_locations, 16);
+    squares(jump_locations, 16);
 }
 
 module switch_plate_holes(){
@@ -84,7 +90,7 @@ module pi_imprint(){
 }
 
 module oled_imprint(){
-    translate([138,95,0])
+    translate([138,94.5,0])
     square([30,29]);
 }
 
@@ -96,7 +102,6 @@ module top_cover(){
         26mm_switch_circular();
         23mm_switch_circular();
         screw_holes();
-        oled_imprint();
     }
 }
 module bottom_cover(){
@@ -119,8 +124,7 @@ module switch_front_space(){
         plainbase();
         push_button_holes();
         screw_holes();
-        26mm_switch_circular();
-        23mm_switch_circular();
+        switches_front_slots();
         pi_imprint();
         oled_imprint();
     }
@@ -135,28 +139,38 @@ module switch_front_plate(){
         pi_imprint();
     }
 }
+module switch_top_cover_space(){
+    difference(){
+        plainbase();
+        push_button_holes();
+        26mm_switch_circular();
+        23mm_switch_circular();
+        screw_holes();
+        oled_imprint();
+    }
+}
 
 module testing_holes(){
     translate([10,50,0])
-    switch_plate_imprint(size = 12.6, catch_x = 3, catch_y=0.3);
+    switch_plate_imprint(size = 13.6, catch_x = 3, catch_y=0.2);
     translate([30,50,0])
-    switch_plate_imprint(size = 12.8, catch_x = 3, catch_y=0.3);
+    switch_plate_imprint(size = 13.7, catch_x = 3, catch_y=0.2);
     translate([50,50,0])
-    switch_plate_imprint(size = 13, catch_x = 3, catch_y=0.3);
+    switch_plate_imprint(size = 13.8, catch_x = 3, catch_y=0.2);
     translate([70,50,0])
-    switch_plate_imprint(size = 13.2, catch_x = 3, catch_y=0.3);
+    switch_plate_imprint(size = 13.9, catch_x = 3, catch_y=0.2);
     translate([90,50,0])
-    switch_plate_imprint(size = 13.4, catch_x = 3, catch_y=0.3);
+    switch_plate_imprint(size = 14.0, catch_x = 3, catch_y=0.2);
     translate([110,50,0])
-    switch_plate_imprint(size = 13.6, catch_x = 3, catch_y=0.3);
+    switch_plate_imprint(size = 14.1, catch_x = 3, catch_y=0.2);
     translate([130,50,0])
-    switch_plate_imprint(size = 13.8, catch_x = 3, catch_y=0.3);
+    switch_plate_imprint(size = 14.2, catch_x = 3, catch_y=0.2);
     translate([150,50,0])
-    switch_plate_imprint(size = 14.0, catch_x = 3, catch_y=0.3);
+    switch_plate_imprint(size = 14.3, catch_x = 3, catch_y=0.2);
     translate([170,50,0])
-    switch_plate_imprint(size = 14.2, catch_x = 3, catch_y=0.3);
+    switch_plate_imprint(size = 14.4, catch_x = 3, catch_y=0.2);
     translate([190,50,0])
-    switch_plate_imprint(size = 14.4, catch_x = 3, catch_y=0.3);
+    switch_plate_imprint(size = 14.5, catch_x = 3, catch_y=0.2);
 }
 
 module plate_test(){
@@ -170,9 +184,10 @@ module plate_test(){
     }
 }
 //bottom_cover();
-//switch_back_space();
+switch_back_space();
 //pcb();
 //switch_front_space();
 //switch_front_plate();
+//switch_top_cover_space();
 //top_cover();
 //plate_test();
