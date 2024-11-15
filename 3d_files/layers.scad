@@ -184,10 +184,10 @@ module plate_test(){
     }
 }
 //bottom_cover();
-switch_back_space();
+//switch_back_space();
 //pcb();
 //switch_front_space();
 //switch_front_plate();
 //switch_top_cover_space();
-//top_cover();
+top_cover();
 //plate_test();
