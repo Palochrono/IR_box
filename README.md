@@ -12,7 +12,12 @@ Keychron switches footprint from [here](https://github.com/girishji/keychron-opt
 | Pushbutton | 6*6mm | 3 |
 | Key switches | Keychron optical low profile | 15 |
 | OLED display | 0.96 inch I2C SSD1306 | 1 |
+
+## Schematics and Render
 ![image](https://github.com/user-attachments/assets/a16b585b-caad-4f81-bade-980876106aa7)
+
+![image](https://github.com/user-attachments/assets/0b9478e3-4c13-4e11-bfff-801d29f9bf52)
+
 
 
 
