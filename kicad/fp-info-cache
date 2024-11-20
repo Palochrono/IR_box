@@ -1,4 +1,4 @@
-22823904238378110
+22830832277645454
 MyFootprints
 6x6pushbutton
 
@@ -154,6 +154,13 @@ Check pin allocation with Symbol as different versions exist
 5
 2
 MyFootprints
+RP2040 Zero zllpin
+
+
+0
+56
+33
+MyFootprints
 SMTSO_M1.6
 Mounting Hole 2.2mm, M2
 mounting hole 2.2mm m2
@@ -216,6 +223,27 @@ test point THT pad rectangle square
 0
 1
 1
+MyFootprints
+transistor
+
+
+0
+0
+0
+MyFootprints
+transistor_mask
+
+
+0
+0
+0
+MyFootprints
+usba_header
+
+
+0
+8
+4
 PCM_4ms_Capacitor
 CP_Elec_5x5.3
 SMT capacitor, aluminium electrolytic, 5x5.3

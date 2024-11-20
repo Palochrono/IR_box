@@ -1,8 +1,9 @@
 $fn = 100;
 module pcb(){
     translate([-43,150,0])
-    import("/home/samz/programming/kicad/keychron_hitbox/Unnamed-keychron_hitbox.stl");
+    import("/home/samz/programming/kicad/IR_box/kicad/Unnamed.stl");
 }
+
 
 module plainbase(x_size=208.5,y_size=125,corner_radius=10){
     translate([corner_radius,corner_radius,0])
@@ -16,7 +17,7 @@ module hole(x_offset,y_offset,radius){
     circle(radius);
 }
 
-module switch_plate_imprint(size = 13.83, catch_x = 3, catch_y=0.2){
+module switch_plate_imprint(size = 13.85, catch_x = 3, catch_y=0.15){
     difference(){
         square(size, center=true);
         translate([0,size/2,0])
@@ -52,21 +53,25 @@ module squares(pos_array,size){
 }
 
 screw_locations = [[9.5,7.5],[114.5,7.5],[194.5,7.5],[9.5,117.5],[194.5,117.5]];
-switch_locations = [[15,51.7],[29.4,77.75],[57.4,80.25],[63.1,107.55],[84.4,69.25],[107.5,49.685],[136.4,54.95],[165,55.2],[194,55.2],[193.8,82.25],[166,82.2],[138.4,81.75],[111.5,77.8],[126.5,27.8]];
+switch_locations = [[15,51.7],[29.4,77.75],[57.4,80.25],[63.1,107.55],[84.4,69.25],[107.5,49.685],[136.4,54.95],[165,55.2],[194,55.2],[193.8,82.25],[166,82.2],[138.4,81.75],[111.5,77.8],[126.5,27.8],[121.4,107.75]];
 jump_locations =[[96.5,19.2]];
-push_button_locations = [[30.55,116.275],[38.9,116.275],[22.4,116.275]];
+push_button_locations = [[27.,116.1],[34.55,116.1],[43.5,116.1],[18,116.1]];
 
 module push_button_holes(){
     squares(push_button_locations, 9.5);
+    //squares(push_button_locations, 2.5);
 }
+
 module screw_holes(){
     holes(screw_locations, 1.12);
 }
 module 23mm_switch_circular(){
-    holes(switch_locations, 12);
+    holes(switch_locations, 12.5);
+    //holes(switch_locations, 1.5);
 }
+
 module 26mm_switch_circular(){
-    holes(jump_locations, 13.5);
+    holes(jump_locations, 14);
 }
 
 module switches_back_slots(){
@@ -93,6 +98,10 @@ module oled_imprint(){
     translate([138,94.5,0])
     square([30,29]);
 }
+module usb_imprint(){
+    translate([0,85.4])
+    square([17,20]);
+}
 
 
 module top_cover(){
@@ -115,7 +124,6 @@ module switch_back_space(){
         plainbase();
         screw_holes();
         switches_back_slots();
-        pi_imprint();
         oled_imprint();
     }
 }
@@ -127,6 +135,7 @@ module switch_front_space(){
         switches_front_slots();
         pi_imprint();
         oled_imprint();
+        usb_imprint();
     }
 }
 module switch_front_plate(){
@@ -137,6 +146,7 @@ module switch_front_plate(){
         switch_plate_holes();
         oled_imprint();
         pi_imprint();
+        usb_imprint();
     }
 }
 module switch_top_cover_space(){
@@ -147,6 +157,8 @@ module switch_top_cover_space(){
         23mm_switch_circular();
         screw_holes();
         oled_imprint();
+        usb_imprint();
+        pi_imprint();
     }
 }
 
@@ -185,9 +197,9 @@ module plate_test(){
 }
 //bottom_cover();
 //switch_back_space();
-//pcb();
-//switch_front_space();
+switch_front_space();
 //switch_front_plate();
 //switch_top_cover_space();
-top_cover();
+//pcb();
+//top_cover();
 //plate_test();
