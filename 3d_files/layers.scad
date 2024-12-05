@@ -17,7 +17,7 @@ module hole(x_offset,y_offset,radius){
     circle(radius);
 }
 
-module switch_plate_imprint(size = 13.85, catch_x = 3, catch_y=0.15){
+module switch_plate_imprint(size = 13.8, catch_x = 3, catch_y=0){
     difference(){
         square(size, center=true);
         translate([0,size/2,0])
@@ -53,9 +53,11 @@ module squares(pos_array,size){
 }
 
 screw_locations = [[9.5,7.5],[114.5,7.5],[194.5,7.5],[9.5,117.5],[194.5,117.5]];
-switch_locations = [[15,51.7],[29.4,77.75],[57.4,80.25],[63.1,107.55],[84.4,69.25],[107.5,49.685],[136.4,54.95],[165,55.2],[194,55.2],[193.8,82.25],[166,82.2],[138.4,81.75],[111.5,77.8],[126.5,27.8],[121.4,107.75]];
+//switch_locations = [[15,51.7],[29.4,77.75],[57.4,80.25],[63.1,107.55],[84.4,69.25],[107.5,49.685],[136.4,54.95],[165,55.2],[194,55.2],[193.8,82.25],[166,82.2],[138.4,81.75],[111.5,77.8],[126.5,27.8],[121.4,107.75]];
+switch_locations = [[15,51.7],[29.4,77.75],[57.4,80.25],[63.1,107.55],[84.4,69.25],[107.5,49.685],[136.4,54.95],[165,55.2],[194,55.2],[193.8,82.25],[166,82.2],[138.4,81.75],[111.5,77.8],[126.5,27.8]];
 jump_locations =[[96.5,19.2]];
-push_button_locations = [[27.,116.1],[34.55,116.1],[43.5,116.1],[18,116.1]];
+//push_button_locations = [[27.,116.1],[34.55,116.1],[43.5,116.1],[18,116.1]];
+push_button_locations = [[30.55,116.275],[38.9,116.275],[22.4,116.275]];
 
 module push_button_holes(){
     squares(push_button_locations, 9.5);
@@ -92,6 +94,10 @@ module switch_plate_holes(){
 module pi_imprint(){
     translate([82.5,97,0])
     square([20,28]);
+}
+module pi_imprint(){
+    translate([82.5,95,0])
+    square([20,30]);
 }
 
 module oled_imprint(){
@@ -197,8 +203,8 @@ module plate_test(){
 }
 //bottom_cover();
 //switch_back_space();
-switch_front_space();
-//switch_front_plate();
+//switch_front_space();
+switch_front_plate();
 //switch_top_cover_space();
 //pcb();
 //top_cover();
